@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Shogun Fight Club - MMA, Muay Thai, Kickboxing, Boxeo, Luta Livre y Funcional en Isidro Casanova y González Catán.">
+  <title>Shogun Fight Club</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;800;900&family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="header" id="header">
+    <a href="#inicio" class="logo">
+      <img src="img/logo.jpeg" alt="Shogun Fight Club">
+      <span>SHOGUN</span>
+    </a>
+    <nav class="nav" id="nav">
+      <a href="#disciplinas">Disciplinas</a>
+      <a href="#resultados">Resultados</a>
+      <a href="#cultura">Cultura</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <div class="header-acciones">
+      <a href="#contacto" class="btn btn-chico">SUMATE</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===== HERO ===== -->
+    <section id="inicio" class="hero">
+      <div class="hero-fondo"></div>
+      <div class="hero-overlay"></div>
+
+      <div class="ticker">
+        <div class="ticker-pista">
+          <span>MMA</span><span>•</span><span>MUAY THAI</span><span>•</span><span>KICKBOXING</span><span>•</span><span>BOXEO</span><span>•</span><span>LUTA LIVRE</span><span>•</span><span>FUNCIONAL</span><span>•</span>
+          
+        </div>
+      </div>
+
+      <div class="hero-contenido">
+        <h1>Shogun<br>Fight Club<span>.</span></h1>
+        <p>No venís a hacer ejercicio. Venís a aprender a pelear, con disciplina y gente que te banca.</p>
+      </div>
+    </section>
+
+    <!-- ===== CONTADORES ===== -->
+    <section class="contadores">
+      <div class="contador">
+        <span class="contador-num" data-target="200">0</span>
+        <p>Alumnos activos</p>
+      </div>
+      <div class="contador">
+        <span class="contador-num" data-target="6">0</span>
+        <p>Disciplinas</p>
+      </div>
+      <div class="contador">
+        <span class="contador-num" data-target="7">0</span>
+        <p>Sedes</p>
+      </div>
+      <div class="contador">
+        <span class="contador-num" data-target="2018">0</span>
+        <p>Desde</p>
+      </div>
+    </section>
+
+        <!-- ===== DISCIPLINAS ===== -->
+    <section id="disciplinas" class="section">
+      <h2 class="reveal titulo-italico">Disciplinas</h2>
+      <p class="etiqueta etiqueta-abajo reveal">Dominio técnico en todas las distancias</p>
+
+      <div class="tabs reveal">
+        <button class="tab activo" data-target="d-mma">MMA</button>
+        <button class="tab" data-target="d-muay">MUAY THAI</button>
+        <button class="tab" data-target="d-kick">KICKBOXING</button>
+        <button class="tab" data-target="d-boxeo">BOXEO</button>
+        <button class="tab" data-target="d-luta">LUTA LIVRE</button>
+        <button class="tab" data-target="d-funcional">FUNCIONAL</button>
+        <button class="tab" data-target="d-infantiles">INFANTILES</button>
+      </div>
+
+      <div class="paneles">
+
+        <article class="panel-disciplina activo" id="d-mma">
+          <div class="panel-foto" style="background-image: url('img/kevin-vallejos-ufc_1b0lqs0tq64aa1quk2lac2yg0x.jpeg')"></div>
+          <div class="panel-capa"></div>
+          <div class="panel-texto">
+            <h3>MMA</h3>
+            <p class="cita">"Acá no alcanza con pegar fuerte. Tenés que saber qué hacer cuando te llevan al suelo y todavía te queda un round."</p>
+            <ul class="atributos">
+              <li>Todas las distancias</li>
+              <li>Cabeza fría</li>
+            </ul>
+            <a href="#contacto" class="btn">QUIERO ENTRENAR</a>
+          </div>
+        </article>
+
+        <article class="panel-disciplina" id="d-muay">
+          <div class="panel-foto" style="background-image: url('img/tiger-muay-thai.jpg')"></div>
+          <div class="panel-capa"></div>
+          <div class="panel-texto">
+            <h3>Muay Thai</h3>
+            <p class="cita">"Ocho armas y una sola regla: el que aguanta el ritmo manda el round."</p>
+            <ul class="atributos">
+              <li>Codos y rodillas</li>
+              <li>Trabajo de clinch</li>
+            </ul>
+            <a href="#contacto" class="btn">QUIERO ENTRENAR</a>
+          </div>
+        </article>
+
+        <article class="panel-disciplina" id="d-kick">
+          <div class="panel-foto" style="background-image: url('img/kickboxing.jpg')"></div>
+          <div class="panel-capa"></div>
+          <div class="panel-texto">
+            <h3>Kickboxing</h3>
+            <p class="cita">"La distancia se gana con las piernas. El que la maneja decide dónde se pelea."</p>
+            <ul class="atributos">
+              <li>Velocidad</li>
+              <li>Combinaciones</li>
+            </ul>
+            <a href="#contacto" class="btn">QUIERO ENTRENAR</a>
+          </div>
+        </article>
+
+        <article class="panel-disciplina" id="d-boxeo">
+          <div class="panel-foto" style="background-image: url('img/Como_ha_cambiado_el_boxeo_en_los_ultimos_anos_1024x1024.webp')"></div>
+          <div class="panel-capa"></div>
+          <div class="panel-texto">
+            <h3>Boxeo</h3>
+            <p class="cita">"La base de todo golpeador. Guardia firme, piernas vivas y manos que llegan antes."</p>
+            <ul class="atributos">
+              <li>Manos rápidas</li>
+              <li>Lectura de distancia</li>
+            </ul>
+            <a href="#contacto" class="btn">QUIERO ENTRENAR</a>
+          </div>
+        </article>
+
+        <article class="panel-disciplina" id="d-luta">
+          <div class="panel-foto" style="background-image: url('img/luta.avif')"></div>
+          <div class="panel-capa"></div>
+          <div class="panel-texto">
+            <h3>Luta Livre</h3>
+            <p class="cita">"Sin kimono no hay de dónde agarrarse. Queda la técnica y la cabeza."</p>
+            <ul class="atributos">
+              <li>Control en el suelo</li>
+              <li>Sumisiones</li>
+            </ul>
+            <a href="#contacto" class="btn">QUIERO ENTRENAR</a>
+          </div>
+        </article>
+
+        <article class="panel-disciplina" id="d-funcional">
+          <div class="panel-foto" style="background-image: url('img/fct.webp')"></div>
+          <div class="panel-capa"></div>
+          <div class="panel-texto">
+            <h3>Funcional</h3>
+            <p class="cita">"El motor que te sostiene los últimos dos minutos, que son los que se ganan."</p>
+            <ul class="atributos">
+              <li>Fuerza real</li>
+              <li>Resistencia</li>
+            </ul>
+            <a href="#contacto" class="btn">QUIERO ENTRENAR</a>
+          </div>
+        </article>
+
+        <article class="panel-disciplina" id="d-infantiles">
+          <div class="panel-foto" style="background-image: url('img/infantil.jfif')"></div>
+          <div class="panel-capa"></div>
+          <div class="panel-texto">
+            <h3>Infantiles</h3>
+            <p class="cita">"Primero aprenden a saludar y a cuidar al compañero. Después aprenden a pelear."</p>
+            <ul class="atributos">
+              <li>Respeto</li>
+              <li>Confianza</li>
+            </ul>
+            <a href="#contacto" class="btn">QUIERO ENTRENAR</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ===== RESULTADOS ===== -->
+    <section id="resultados" class="section seccion-resultados">
+      <p class="etiqueta reveal"></p>
+      <h2 class="reveal">Resultados</h2>
+
+      <div class="testimonios">
+        <blockquote class="testimonio activo">
+          <p>"Shogun es donde día a día salgo de mi zona de confort, donde, aunque no me dé cuenta, mejoro y me exijo al máximo; donde me siento respaldado y siento la responsabilidad de apoyar al resto. Shogun es mi familia."</p>
+          <footer><strong>Diego Castaño</strong><span>Profesor • Muay Thai</span></footer>
+        </blockquote>
+
+        <blockquote class="testimonio">
+          <p>Mi hogar, mi lugar seguro</p>
+          <footer><strong>Dylan Iviglia</strong><span>Alumno • MMA</span></footer>
+        </blockquote>
+
+        <blockquote class="testimonio">
+          <p>Tercera reseña. Mejor si son cortas y suenan a como habla la gente del dojo.</p>
+          <footer><strong>NOMBRE APELLIDO</strong><span>Alumna • Muay Thai</span></footer>
+        </blockquote>
+      </div>
+      
+      <div class="testimonios-puntos" id="puntos"></div>
+      <div class="progreso"><span id="barraProgreso"></span></div>
+
+    </section>
+
+    <!-- ===== CULTURA / FILOSOFÍA ===== -->
+    <section id="cultura" class="section">
+      <p class="etiqueta reveal">Nuestra filosofía</p>
+      <h2 class="reveal">La cultura Shogun</h2>
+      <p class="bajada reveal">Fortis Fortuna Adiuvat. La fortuna favorece a los fuertes, y la fuerza se construye entrenando el día que no tenés ganas.</p>
+
+      <div class="valores">
+        <article class="valor reveal">
+          <h3>Disciplina</h3>
+          <p>Venir el día que no tenés ganas es lo que separa al que entrena del que dice que entrena.</p>
+        </article>
+        <article class="valor reveal">
+          <h3>Respeto</h3>
+          <p>Al profe, al compañero y al que recién arranca. Nadie se sube al tatami a lastimar.</p>
+        </article>
+        <article class="valor reveal">
+          <h3>Constancia</h3>
+          <p>No buscamos el golpe perfecto. Buscamos el que repetiste mil veces sin que nadie mire.</p>
+        </article>
+        <article class="valor reveal">
+          <h3>Familia</h3>
+          <p>Se entra por la pelea y se queda por la gente. Acá nadie entrena solo.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== INSTAGRAM ===== -->
+    <section class="instagram reveal">
+      <h2>@mmashogun_</h2>
+      <p class="bajada">Entrenamientos, graduaciones y lo que pasa adentro del dojo.</p>
+      <a href="https://instagram.com/mmashogun_" target="_blank" rel="noopener" class="btn">SEGUINOS EN INSTAGRAM</a>
+    </section>
+
+    <!-- ===== CONTACTO Y MAPA ===== -->
+    <section id="contacto" class="section">
+      <p class="etiqueta reveal">Dónde entrenamos</p>
+      <h2 class="reveal">Sedes</h2>
+
+      <div class="sedes">
+        <article class="sede reveal">
+          <h3>Sede Central</h3>
+          <p>Tornquist 3959<br>Isidro Casanova</p>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=-34.717102,-58.590808" target="_blank" rel="noopener" class="btn btn-borde">CÓMO LLEGAR</a>
+        </article>
+        <article class="sede reveal">
+          <h3>González Catán</h3>
+          <p>Simón Pérez 5943<br>González Catán</p>
+          <a href="https://wa.me/54911XXXXXXXX" target="_blank" rel="noopener" class="btn btn-borde">WHATSAPP</a>
+        </article>
+      </div>
+
+      <div id="mapa" class="mapa reveal"></div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>Shogun Fight Club &bull; Fortis Fortuna Adiuvat &bull; &copy; 2026</p>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
