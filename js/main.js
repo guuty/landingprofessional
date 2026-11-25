@@ -118,15 +118,19 @@ reiniciarRotacion();
 
 // ---------- Mapa ----------
 const sedes = [
-  { nombre: 'Sede Central<br>Tornquist 3959, Isidro Casanova', coords: [-34.717102, -58.590808] },
-  { nombre: 'González Catán<br>Simón Pérez 5943', coords: [-34.784033, -58.630354] }
+  { nombre: 'Sede Central<br>Tornquist 3959, Isidro Casanova', coords: [-34.717102,  -58.590808]  },
+  { nombre: 'González Catán<br>Simón Pérez 5943',              coords: [-34.7839703, -58.630918]  },
+  { nombre: 'Aldo Bonzi<br>Cucha Cucha 2026',                  coords: [-34.7107283, -58.5176597] },
+  { nombre: 'Sede Don Juan<br>Spiro 4375 esq. Raulies',        coords: [-34.7589722, -58.5935822] },
+  { nombre: 'Sede La Tablada<br>Alberti 3140',                 coords: [-34.6975967, -58.5435177] },
+  { nombre: 'Sede Laferrere<br>Cobo 6437',                     coords: [-34.7676473, -58.6039242] },
+  { nombre: 'Sede Luzuriaga<br>Granaderos 2209',               coords: [-34.6591869, -58.5824648] }
 ];
 
 const mapa = L.map('mapa', { scrollWheelZoom: false }).setView(sedes[0].coords, 12);
 
-L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-  attribution: '&copy; OpenStreetMap &copy; CARTO',
-  subdomains: 'abcd',
+L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
+  attribution: 'Tiles &copy; Esri',
   maxZoom: 19
 }).addTo(mapa);
 

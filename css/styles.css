@@ -126,7 +126,7 @@ img { display: block; max-width: 100%; }
   position: absolute;
   inset: 0;
   background: url('../img/estiramientoscopia.jpg') center/cover no-repeat;
-  filter: grayscale(1) contrast(1.15);
+  filter: contrast(1.15) brightness(.5);
 }
 
 .hero-overlay {
@@ -330,13 +330,13 @@ img { display: block; max-width: 100%; }
   background-color: #161616;
   background-size: cover;
   background-position: center;
-  filter: grayscale(1) contrast(1.1);
+  filter: contrast(1.05) saturate(1.1);
 }
 
 .panel-capa {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, rgba(0,0,0,.94) 0%, rgba(0,0,0,.82) 38%, rgba(0,0,0,.30) 100%);
+  background: linear-gradient(to right, rgba(0,0,0,.95) 0%, rgba(0,0,0,.86) 40%, rgba(0,0,0,.35) 100%);
 }
 
 .panel-texto {
@@ -493,28 +493,37 @@ img { display: block; max-width: 100%; }
 /* ---------- Sedes y mapa ---------- */
 .sedes {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-  max-width: 900px;
-  margin: 50px auto 0;
+  grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
+  gap: 12px;
+  max-width: 1180px;
+  margin: 46px auto 0;
 }
 
 .sede {
-  padding: 40px 32px;
+  padding: 26px 20px;
   background: var(--negro-card);
   border: 1px solid var(--borde);
+  border-radius: 4px;
   text-align: center;
 }
 
 .sede h3 {
   font-family: var(--titulo);
   font-weight: 800;
-  font-size: 1.1rem;
+  font-size: .92rem;
+  letter-spacing: -.01em;
   text-transform: uppercase;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
-.sede p { color: var(--gris); margin-bottom: 24px; }
+.sede p {
+  color: var(--gris);
+  font-size: .82rem;
+  line-height: 1.5;
+  margin-bottom: 18px;
+}
+
+.sede .btn { padding: 10px 18px; font-size: .58rem; }
 
 .mapa {
   height: 420px;
