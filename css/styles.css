@@ -622,3 +622,45 @@ img { display: block; max-width: 100%; }
   from { width: 0;    height: 1px; }
   to   { width: 100%; height: 4px; }
 }
+
+/* ---------- Botón flotante de WhatsApp ---------- */
+.wsp {
+  position: fixed;
+  right: 26px;
+  bottom: 26px;
+  z-index: 200;
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  font-size: 1.9rem;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, .45);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.wsp:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 28px rgba(37, 211, 102, .45);
+}
+
+.wsp::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid #25d366;
+  animation: latido 2.4s ease-out infinite;
+}
+
+@keyframes latido {
+  0%   { transform: scale(1);   opacity: .7; }
+  70%  { transform: scale(1.5); opacity: 0;  }
+  100% { transform: scale(1.5); opacity: 0;  }
+}
+
+@media (max-width: 900px) {
+  .wsp { right: 16px; bottom: 16px; width: 52px; height: 52px; font-size: 1.7rem; }
+}
