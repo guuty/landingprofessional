@@ -172,12 +172,29 @@ img { display: block; max-width: 100%; }
   background: rgba(0, 0, 0, .35);
 }
 
+/* PC: estática y centrada */
 .ticker-pista {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
-  gap: 28px;
   width: 100%;
+}
+
+.ticker-grupo {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 28px;
+  padding-right: 28px;
+}
+
+.ticker-grupo:last-child { display: none; }
+.ticker-grupo span:last-child { display: none; }
+
+.ticker-pista span {
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  color: var(--gris);
+  white-space: nowrap;
 }
 
 @keyframes correr {
@@ -395,7 +412,10 @@ img { display: block; max-width: 100%; }
 }
 
 /* ---------- Resultados ---------- */
-.seccion-resultados { border-top: 1px solid var(--borde); }
+.seccion-resultados {
+  position: relative;
+  border-top: 1px solid var(--borde);
+}
 
 .testimonios { position: relative; max-width: 820px; margin: 50px auto 0; min-height: 230px; }
 
@@ -446,6 +466,28 @@ img { display: block; max-width: 100%; }
 }
 
 .punto.activo { background: var(--blanco); }
+
+/* ---------- Barra de progreso de reseñas ---------- */
+.progreso {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 4px;
+  background: rgba(255, 255, 255, .05);
+}
+
+.progreso span {
+  display: block;
+  width: 0;
+  height: 1px;
+  background: var(--blanco);
+}
+
+.progreso span.corriendo { animation: cargar 6s linear forwards; }
+
+@keyframes cargar {
+  from { width: 0;    height: 1px; }
+  to   { width: 100%; height: 4px; }
+}
 
 /* ---------- Valores ---------- */
 .valores {
@@ -532,9 +574,6 @@ img { display: block; max-width: 100%; }
   overflow: hidden;
 }
 
-/* el filtro va solo a los tiles, así los marcadores no se invierten */
-.mapa .leaflet-tile-pane { filter: grayscale(1) invert(1) contrast(.85); }
-
 .leaflet-container { background: #161616; }
 
 .marcador span {
@@ -562,66 +601,6 @@ img { display: block; max-width: 100%; }
 }
 
 .leaflet-control-attribution { font-size: 9px; }
-
-/* ---------- Mobile ---------- */
-@media (max-width: 900px) {
-  .header, .header.scrolled { padding: 14px 20px; }
-  .nav-toggle { display: flex; }
-  .btn-chico { display: none; }
-
-  .nav {
-    position: absolute;
-    top: 100%; left: 0; right: 0;
-    flex-direction: column;
-    gap: 0;
-    background: rgba(0, 0, 0, .97);
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height .35s ease;
-  }
-
-  .nav.abierto { max-height: 300px; }
-  .nav a { padding: 18px 20px; border-bottom: 1px solid var(--borde); }
-
-  .ticker { top: 72px; }
-  .section { padding: 90px 20px; }
-  .contadores { grid-template-columns: repeat(2, 1fr); }
-  .contador:nth-child(2) { border-right: none; }
-  .contador:nth-child(-n+2) { border-bottom: 1px solid var(--borde); }
-    .tabs { display: flex; flex-wrap: wrap; justify-content: center; }
-  .tab { flex: 1 1 auto; padding: 14px 16px; }
-  .panel-disciplina { min-height: 480px; }
-  .panel-capa { background: linear-gradient(to bottom, rgba(0,0,0,.55) 0%, rgba(0,0,0,.92) 55%); }
-  .panel-texto { min-height: 480px; padding: 40px 26px; max-width: none; justify-content: flex-end; }
-  .valores { grid-template-columns: 1fr; }
-  .sedes { grid-template-columns: 1fr; }
-  .instagram { padding: 80px 20px; }
-  .testimonios { min-height: 300px; }
-}
-
-/* ---------- Barra de progreso de reseñas ---------- */
-.seccion-resultados { position: relative; }
-
-.progreso {
-  position: absolute;
-  left: 0; right: 0; bottom: 0;
-  height: 4px;
-  background: rgba(255, 255, 255, .05);
-}
-
-.progreso span {
-  display: block;
-  width: 0;
-  height: 1px;
-  background: var(--blanco);
-}
-
-.progreso span.corriendo { animation: cargar 6s linear forwards; }
-
-@keyframes cargar {
-  from { width: 0;    height: 1px; }
-  to   { width: 100%; height: 4px; }
-}
 
 /* ---------- Botón flotante de WhatsApp ---------- */
 .wsp {
@@ -661,6 +640,50 @@ img { display: block; max-width: 100%; }
   100% { transform: scale(1.5); opacity: 0;  }
 }
 
+/* ---------- Mobile ---------- */
 @media (max-width: 900px) {
+  .header, .header.scrolled { padding: 14px 20px; }
+  .nav-toggle { display: flex; }
+  .btn-chico { display: none; }
+
+  .nav {
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    flex-direction: column;
+    gap: 0;
+    background: rgba(0, 0, 0, .97);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .35s ease;
+  }
+
+  .nav.abierto { max-height: 300px; }
+  .nav a { padding: 18px 20px; border-bottom: 1px solid var(--borde); }
+
+  /* celular: la cinta gira */
+  .ticker { top: 72px; }
+
+  .ticker-pista {
+    justify-content: flex-start;
+    width: max-content;
+    animation: correr 22s linear infinite;
+  }
+
+  .ticker-grupo:last-child { display: flex; }
+  .ticker-grupo span:last-child { display: inline; }
+
+  .section { padding: 90px 20px; }
+  .contadores { grid-template-columns: repeat(2, 1fr); }
+  .contador:nth-child(2) { border-right: none; }
+  .contador:nth-child(-n+2) { border-bottom: 1px solid var(--borde); }
+  .tabs { display: flex; flex-wrap: wrap; justify-content: center; }
+  .tab { flex: 1 1 auto; padding: 14px 16px; }
+  .panel-disciplina { min-height: 480px; }
+  .panel-capa { background: linear-gradient(to bottom, rgba(0,0,0,.55) 0%, rgba(0,0,0,.92) 55%); }
+  .panel-texto { min-height: 480px; padding: 40px 26px; max-width: none; justify-content: flex-end; }
+  .valores { grid-template-columns: 1fr; }
+  .sedes { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+  .instagram { padding: 80px 20px; }
+  .testimonios { min-height: 300px; }
   .wsp { right: 16px; bottom: 16px; width: 52px; height: 52px; font-size: 1.7rem; }
 }
